@@ -3,20 +3,39 @@ import library
 # Question for next meeting: Is the library object going to be stored in a file outside the program and read into
 # the program on launch, or are we going to create a new blank Library object every time we launch the program?
 
+
 def main():
     """
-    Either create or read in (from a seperate file) a new library object.
+    Asks user for different command options to perform
+    with the Library object.
+    """
+    print("Welcome to the virtual library.")
 
-    Print five (assuming there is only one sorting option) options to the user:
-    1. Exit the program
-    2. View the inventory
-    3-?? different sorting options
-    4. Add book
-    5. Remove book
+    # TODO: possibly change to loading a file instead of creating a blank one.
+    lib = library.Library()
 
-    Prompt user for input, then implement each menu option. """
+    # TODO: Implement each option in the interface
+    running = True
+    while running:
+        print("[0] Exit")
+        print("[1] View the inventory")
+        print("[2] Add book")
+        print("[3] Remove book")
 
-    pass
+        entry = input("\nWhat would you like to do? ")
+
+        if entry == '0':    # Exit the program
+            running = False
+        elif entry == '1':  # View the inventory
+            print(lib)
+        elif entry == '2':  # Add book to the library
+            pass
+        elif entry == '3':  # Remove book from library
+            pass
+        else:
+            print("Incorrect input, try again.")
+
+    print("Closing the program.")
 
 
 main()
