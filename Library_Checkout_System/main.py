@@ -18,7 +18,7 @@ def main():
     running = True
     while running:
         print("[0] Exit")
-        print("[1] View the inventory")
+        print("[1] View Library")
         print("[2] Add book")
         print("[3] Remove book")
 
