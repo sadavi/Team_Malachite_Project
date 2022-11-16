@@ -1,4 +1,4 @@
-import book
+from book import Book
 
 
 class Library(object):
@@ -35,9 +35,9 @@ class Library(object):
         for cursor in self.inventory:
             yield cursor
 
-    def add(self, item):
+    def add(self, title, author, year):
         """Add a book item to the Library"""
-        pass
+        self.inventory.append(Book(title, author, year))
 
     def remove(self, item):
         """Remove a book from the Library (using a book Title? We'd need to use a search algorithm here)"""
