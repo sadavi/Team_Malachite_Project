@@ -29,7 +29,12 @@ def main():
         elif entry == '1':  # View the inventory
             print(lib)
         elif entry == '2':  # Add book to the library
-            pass
+            # TODO: add data verification
+            title = input("Title: ")
+            author = input("Author: ")
+            year = int(input("Publish Year: "))
+
+            lib.add(title, author, year)
         elif entry == '3':  # Remove book from library
             pass
         else:
