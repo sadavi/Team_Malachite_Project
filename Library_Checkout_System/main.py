@@ -29,9 +29,9 @@ def main():
         elif entry == '1':  # View the inventory
             print(lib)
         elif entry == '2':  # Add book to the library
-            # TODO: add data verification
             title = input("Title: ")
             author = input("Author: ")
+            # TODO: add data validity check for a published year
             year = int(input("Publish Year: "))
 
             lib.add(title, author, year)
