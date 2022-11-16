@@ -12,4 +12,4 @@ class Book(object):
 
     def __str__(self):
         """Returns each variable as a list element in a new list"""
-        return ["Title: " + self.title, "Author: " + self.author, "Date Published: ", self.publishDate]
+        return f"\"{self.title}\" by {self.author} ({self.publishDate})"
