@@ -28,7 +28,7 @@ class Library(object):
 
     def __str__(self):
         """Allows for printing the Library"""
-        return "{" + ", ".join(map(str, self)) + "}"
+        return "{" + "\n".join(map(str, self)) + "}"
 
     def __iter__(self):
         """Supports iteration over a view of self."""
