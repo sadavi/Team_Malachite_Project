@@ -36,7 +36,8 @@ def main():
 
             lib.add(title, author, year)
         elif entry == '3':  # Remove book from library
-            pass
+            item = input("Enter the book title you wish to remove\n")
+            lib.remove(item)
         else:
             print("Incorrect input, try again.")
 

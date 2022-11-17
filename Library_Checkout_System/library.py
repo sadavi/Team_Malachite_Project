@@ -43,4 +43,6 @@ class Library(object):
         """Remove a book from the Library using book title"""
         for i in self.inventory:
             if item in self.inventory[i]:
-                self.inventory.pop(i)
+                return self.inventory.pop(i)
+        print("Item not found in inventory.")
+        pass
