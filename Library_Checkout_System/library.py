@@ -40,5 +40,7 @@ class Library(object):
         self.inventory.append(Book(title, author, year))
 
     def remove(self, item):
-        """Remove a book from the Library (using a book Title? We'd need to use a search algorithm here)"""
-        pass
+        """Remove a book from the Library using book title"""
+        for i in self.inventory:
+            if item in self.inventory[i]:
+                self.inventory.pop(i)
