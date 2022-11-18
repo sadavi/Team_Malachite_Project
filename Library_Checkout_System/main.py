@@ -1,5 +1,6 @@
 import library
 
+
 # Question for next meeting: Is the library object going to be stored in a file outside the program and read into
 # the program on launch, or are we going to create a new blank Library object every time we launch the program?
 
@@ -24,7 +25,7 @@ def main():
 
         entry = input("\nWhat would you like to do? ")
 
-        if entry == '0':    # Exit the program
+        if entry == '0':  # Exit the program
             running = False
         elif entry == '1':  # View the inventory
             print(lib)

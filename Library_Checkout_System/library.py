@@ -22,6 +22,9 @@ class Library(object):
         created"""
         pass
 
+    def isEmpty(self):
+        return self.length == 0
+
     def __len__(self):
         """To avoid having to use self.inventory.length every time."""
         return self.length
@@ -38,11 +41,18 @@ class Library(object):
     def add(self, title, author, year):
         """Add a book item to the Library"""
         self.inventory.append(Book(title, author, year))
+        self.length += 1
 
     def remove(self, item):
-        """Remove a book from the Library using book title"""
-        for i in self.inventory:
-            if item in self.inventory[i]:
-                return self.inventory.pop(i)
-        print("Item not found in inventory.")
-        pass
+        """Remove a book from the Library using book title, must not be empty"""
+        if not self.isEmpty():
+            for i in range(0, self.length):
+                if item in self.inventory[i]:
+                    print("Removed " + str(self.inventory[i]))
+                    self.inventory.pop(i)
+                    self.length -= 1
+                    return
+
+            print("Book not found in inventory.")
+        else:
+            print("Library empty, cannot remove book.")
