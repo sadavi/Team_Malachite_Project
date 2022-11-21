@@ -14,12 +14,7 @@ class Library(object):
         self.currentId = 0o00001
         if sourceCollection:
             for item in sourceCollection:
-                self.add(item)
-
-    def returnSortedInventory(self):
-        """Sort and return inventory, programmer's choice unless later specified. Multiple sort methods may be
-        created"""
-        pass
+                self.add(item.getTitle(), item.getAuthor(), item.getPublishDate())
 
     def isEmpty(self):
         return self.length == 0
@@ -82,3 +77,18 @@ class Library(object):
             print("Book not found in inventory.")
         else:
             print("Library empty, cannot retrieve book ID.")
+
+    def sortedInventory(self, method):
+        """ Return library in different sorting configuration depending on included method"""
+        if self.isEmpty():
+            return "Library is Empty"
+        elif method == "title":
+            return Library(sorted(self, key=lambda x: x[0]))
+        elif method == "author":
+            return Library(sorted(self, key=lambda x: x[1]))
+        elif method == "date":
+            return Library(sorted(self, key=lambda x: x[2]))
+        else:
+            raise Exception("Illegal argument.")
+
+            

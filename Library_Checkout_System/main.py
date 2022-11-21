@@ -28,7 +28,22 @@ def main():
         if entry == '0':  # Exit the program
             running = False
         elif entry == '1':  # View the inventory
-            print(lib)
+            while True:
+                print("[1] By Title")
+                print("[2] By Author")
+                print("[3] By Publish year")
+                entry = input("\nHow would like it to be sorted? ")
+
+                if entry == "1":
+                    print(lib.sortedInventory("title"))
+                elif entry == "2":
+                    print(lib.sortedInventory("author"))
+                elif entry == "3":
+                    print(lib.sortedInventory("date"))
+                else:
+                    print("Wrong input")
+                    next
+                break
         elif entry == '2':  # Add book to the library
             title = input("Title: ")
             author = input("Author: ")
