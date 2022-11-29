@@ -22,6 +22,8 @@ def main():
         print("[1] View Library")
         print("[2] Add book")
         print("[3] Remove book")
+        print("[4] Load library from file")
+        print("[5] Save library to file")
 
         entry = input("\nWhat would you like to do? ")
 
@@ -54,6 +56,12 @@ def main():
         elif entry == '3':  # Remove book from library
             item = input("Enter the book title you wish to remove\n")
             lib.remove(item)
+        elif entry == '4':
+            print("Loading file...")
+            lib.loadInventory()
+        elif entry == '5':
+            print("Saving file...")
+            lib.saveInventory()
         else:
             print("Incorrect input, try again.")
 
