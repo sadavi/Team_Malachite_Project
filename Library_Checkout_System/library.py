@@ -1,4 +1,5 @@
 from book import Book
+import csv
 
 
 class Library(object):
@@ -12,9 +13,17 @@ class Library(object):
         self.inventory = []
         self.length = 0
         self.currentId = 0o00001
+        self.source_file = 'library_inventory.txt'
         if sourceCollection:
-            for item in sourceCollection:
-                self.add(item.getTitle(), item.getAuthor(), item.getPublishDate())
+            self.source_file = sourceCollection
+            with open(sourceCollection, mode='r') as library_file:
+                library_reader = csv.DictReader(library_file)
+                row_count = 0
+                for row in library_reader:
+                    if row_count > 0:
+                        self.add(row["title"], row["author"], row["publish_date"])
+                    else:
+                        row_count += 1
 
     def isEmpty(self):
         return self.length == 0
@@ -55,6 +64,14 @@ class Library(object):
         """Returns a unique ID"""
         yield self.currentId
         self.currentId += 1
+
+    def saveInventory(self):
+        with open(self.source_file, mode='w') as save_file:
+            save_writer = csv.writer(save_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            save_writer.writerow(['title', 'author', 'publish_date'])
+
+            for book in self.inventory:
+                save_writer.writerow([book[0], book[1], book[2]])
 
     def getId(self, title):
         """Finds a book by title and returns the book's ID. Library must not be empty"""
