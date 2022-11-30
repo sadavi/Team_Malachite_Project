@@ -112,4 +112,16 @@ class Library(object):
         else:
             raise Exception("Illegal argument.")
 
+    def findAll(self, title):
+        """ Returns all books with a substring in a title """
+        result = []
+
+        for book in self:
+            if title.lower() in book.getTitle().lower():
+                result.append(book)
+
+        return result
+
+    def clearLibrary(self):
+        self.inventory = []
             
