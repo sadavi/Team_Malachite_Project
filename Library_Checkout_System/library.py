@@ -22,7 +22,7 @@ class Library(object):
         return self.length == 0
 
     def __len__(self):
-        """To avoid having to use self.inventory.length every time."""
+        """Returns the length of self"""
         return self.length
 
     def __str__(self):
@@ -30,12 +30,12 @@ class Library(object):
         return "{" + "\n".join(map(str, self)) + "}"
 
     def __iter__(self):
-        """Supports iteration over a view of self."""
+        """Supports iteration over a view of self"""
         for cursor in self.inventory:
             yield cursor
 
     def saveInventory(self):
-        """Saves the current inventory into """
+        """Saves the current inventory into source_file"""
         with open(self.source_file, mode='w', newline='') as save_file:
             save_writer = csv.writer(save_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             save_writer.writerow(['title', 'author', 'publish_date'])
